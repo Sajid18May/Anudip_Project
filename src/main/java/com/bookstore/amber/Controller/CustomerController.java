@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.bookstore.amber.Entiry.Customers;
 import com.bookstore.amber.Service.CService;
 
+import jakarta.validation.Valid;
+
 @RestController
 public class CustomerController {
     
@@ -21,7 +23,7 @@ public class CustomerController {
     CService cs;
 
     @PostMapping("/addCustomers")
-	public Customers addCustomers(@RequestBody Customers Customers) {
+	public Customers addCustomers(@Valid @RequestBody Customers Customers) {
 		
 		return cs.addCustomers(Customers);
 	}
