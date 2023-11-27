@@ -22,8 +22,7 @@ private String title;
 private String author_name;
 private String genre;
 private double price;
-private Date published_date;
-private int stock_quantity;
+private int star;
 
 @OneToMany(cascade = CascadeType.ALL)
 @JoinColumn(name="book_id",referencedColumnName = "book_id")
