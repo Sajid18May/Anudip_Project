@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.bookstore.amber.Entiry.Customers;
 import com.bookstore.amber.Service.CService;
-
 import jakarta.validation.Valid;
 
 @RestController
@@ -50,4 +49,20 @@ public class CustomerController {
 	  public String deleteCustomers(@PathVariable("id") int id) {
 		  return cs.deleteCustomersById(id);
 	  }
+
+	  @PostMapping("/log_in")
+      public Customers login(@RequestBody Customers user){
+		String email=user.getEmail();
+		String password=user.getPassword();
+		System.out.println("Received email: " + email);
+    	System.out.println("Received password: " + password);
+         Customers c1=cs.getByEmail(email);
+        if(c1!=null && c1.getPassword().equals(password)){
+
+            return c1; 
+        }
+        else{
+            return null;    
+        }
+    }
 }

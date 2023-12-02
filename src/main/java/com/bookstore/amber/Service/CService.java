@@ -69,5 +69,8 @@ public class CService {
 
 		return null;
 	}
+	public Customers getByEmail(String email){
+		return cr.findByEmail(email);
+	}
 
 }
