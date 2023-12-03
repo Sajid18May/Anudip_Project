@@ -54,8 +54,6 @@ public class CustomerController {
       public Customers login(@RequestBody Customers user){
 		String email=user.getEmail();
 		String password=user.getPassword();
-		System.out.println("Received email: " + email);
-    	System.out.println("Received password: " + password);
          Customers c1=cs.getByEmail(email);
         if(c1!=null && c1.getPassword().equals(password)){
 
