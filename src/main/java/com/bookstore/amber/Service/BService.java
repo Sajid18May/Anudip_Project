@@ -38,4 +38,22 @@ public class BService {
 		}
 		return "No such order in the database";
 	}
+
+	 public Books updateBook(int bookId,Books updatedBook) {
+        Optional<Books> existingBook = br.findById(bookId);
+
+        if (existingBook.isPresent()) {
+             Books newdata=existingBook.get();
+            newdata.setTitle(updatedBook.getTitle());
+            newdata.setAuthor_name(updatedBook.getAuthor_name());
+            newdata.setGenre(updatedBook.getGenre());
+            newdata.setPrice(updatedBook.getPrice());
+            newdata.setStar(updatedBook.getStar());
+            br.save(newdata);
+
+            return newdata;
+        } else {
+            return null;
+        }
+    }
 }
