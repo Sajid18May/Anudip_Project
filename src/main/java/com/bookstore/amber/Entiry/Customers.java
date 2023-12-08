@@ -1,14 +1,9 @@
 package com.bookstore.amber.Entiry;
 
-import java.util.List;
-
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
@@ -37,7 +32,4 @@ private String address;
 @Size(min = 10,message = "Not a valid Phone Number")
 private String phone_number;
 
-@OneToMany(cascade = CascadeType.ALL)
-@JoinColumn(name="customer_id",referencedColumnName = "customer_id")
-private List<Orders> orders;
 }

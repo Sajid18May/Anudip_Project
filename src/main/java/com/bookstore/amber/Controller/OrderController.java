@@ -28,6 +28,12 @@ public class OrderController {
 
         return os.addOrders(Order);
     }
+
+	@PostMapping("/addOrder/{customer_id}")
+    public Orders addOrdersanCustomer(@RequestBody Orders Order,@PathVariable(name="customer_id",required = false)Integer customer_id){
+
+        return os.OrderwithCustomer(Order,customer_id);
+    }
     
 	  @GetMapping("/getOrders")
 	    public List<Orders> getAllOrders() {
