@@ -39,7 +39,7 @@ public class BookController {
 	}
 
 	@DeleteMapping("/Books/{id}")
-	public String deleteBooks(@PathVariable("id") int id) {
+	public Books deleteBooks(@PathVariable("id") int id) {
 		return bs.deleteBooksById(id);
 	}
 

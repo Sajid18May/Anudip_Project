@@ -31,12 +31,13 @@ public class BService {
 	}
 
 	
-	public String deleteBooksById(int id) {
-		if(br.findById(id).isPresent()) {
+	public Books deleteBooksById(int id) {
+        Optional <Books> nuke=br.findById(id);
+		if(nuke.isPresent()) {
 			br.deleteById(id);
-			return "Order deleted successfully";
+			return nuke.get();
 		}
-		return "No such order in the database";
+		return null;
 	}
 
 	 public Books updateBook(int bookId,Books updatedBook) {
