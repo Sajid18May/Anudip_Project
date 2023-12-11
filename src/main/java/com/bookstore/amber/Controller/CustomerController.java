@@ -28,6 +28,15 @@ public class CustomerController {
 		
 		return cs.addCustomers(Customers);
 	}
+	@PostMapping("/register")
+    public Customers registration(@Valid @RequestBody Customers Customers){
+        Customers existingUser = cs.getByEmail(Customers.getEmail());
+
+        if(existingUser != null)
+            return null;
+		else
+        	return cs.addCustomers(Customers);
+    }
 
 	  @GetMapping("/getCustomers")
 	    public List<Customers> getAllCustomers() {
